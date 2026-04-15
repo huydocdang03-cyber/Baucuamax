@@ -134,7 +134,9 @@ cursor:pointer;
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
-const socket=io();
+const socket = io(window.location.origin, {
+  transports: ["websocket", "polling"]
+});
 
 function login(){
 socket.emit("login",{username:username.value,password:password.value});
